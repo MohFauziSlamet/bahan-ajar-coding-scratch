@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Catch the Apple, Avoid the Rock — Ujian Praktik Scratch</title>
+<style>
+  @page { size: A4; margin: 15mm 14mm 14mm 14mm; }
+
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 10.4pt; line-height: 1.5; color: #1c2430; margin: 0;
+  }
+
+  /* ---------- kop ---------- */
+  .kop { border: 2px solid #1c2430; border-radius: 10px; overflow: hidden; margin-bottom: 14px; }
+  .kop-top { background: #1c2430; color: #fff; padding: 12px 16px 13px; }
+  .kop-eyebrow { font-size: 8.4pt; letter-spacing: .18em; text-transform: uppercase; opacity: .75; }
+  .kop-top h1 { margin: 3px 0 2px; font-size: 22pt; line-height: 1.12; letter-spacing: -.01em; }
+  .kop-sub { font-size: 10pt; opacity: .85; }
+  .kop-id { display: flex; }
+  .kop-id div { flex: 1; padding: 8px 12px; border-right: 1px solid #cfd6df; font-size: 9pt; }
+  .kop-id div:last-child { border-right: 0; }
+  .kop-id b { display: block; font-size: 7.8pt; letter-spacing: .1em; text-transform: uppercase; color: #6b7787; margin-bottom: 8px; }
+  .dot { border-bottom: 1px dotted #8a94a2; display: block; height: 12px; }
+
+  /* ---------- judul bagian ---------- */
+  h2 {
+    font-size: 12.4pt; margin: 20px 0 8px; padding-bottom: 5px;
+    border-bottom: 2px solid #1c2430; display: flex; align-items: baseline; gap: 9px;
+  }
+  h2 .no {
+    background: #1c2430; color: #fff; width: 21px; height: 21px; border-radius: 5px;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 10pt; flex: none;
+  }
+  h3 { font-size: 10.8pt; margin: 14px 0 6px; }
+  p { margin: 6px 0; }
+
+  /* ---------- kartu langkah ---------- */
+  .sprite { border: 1px solid #cfd6df; border-radius: 9px; margin: 12px 0 0; overflow: hidden; break-inside: avoid; }
+  .sprite > .head {
+    background: #eef2f7; border-bottom: 1px solid #cfd6df; padding: 7px 12px;
+    font-size: 11pt; font-weight: 700; display: flex; align-items: center; gap: 8px;
+  }
+  .sprite > .head .tag {
+    font-size: 7.6pt; font-weight: 700; letter-spacing: .09em; text-transform: uppercase;
+    background: #1c2430; color: #fff; padding: 2px 7px; border-radius: 20px;
+  }
+  .sprite > .body { padding: 9px 13px 12px; }
+
+  .script { margin-top: 10px; break-inside: avoid; }
+  .script > .title {
+    font-weight: 700; font-size: 9.8pt; background: #fdf3d8; border-left: 4px solid #ffbf00;
+    padding: 4px 9px; border-radius: 0 5px 5px 0;
+  }
+
+  ol { margin: 6px 0 0; padding-left: 20px; }
+  ol li { margin: 3px 0; }
+  ol ol { margin: 3px 0 5px; padding-left: 17px; border-left: 2px dashed #c9d2dd; }
+  ol ol { list-style: lower-alpha; }
+  ol ol ol { list-style: lower-roman; }
+  ul { margin: 6px 0; padding-left: 18px; }
+
+  /* ---------- chip blok ---------- */
+  .b {
+    display: inline-block; padding: .5px 6px; border-radius: 11px; color: #fff;
+    font-size: 8.9pt; font-weight: 600; white-space: nowrap; line-height: 1.45;
+  }
+  .motion    { background: #4C97FF; }
+  .looks     { background: #9966FF; }
+  .sound     { background: #CF63CF; }
+  .events    { background: #FFBF00; color: #4a3600; }
+  .control   { background: #FFAB19; color: #4a2f00; }
+  .sensing   { background: #5CB1D6; }
+  .operators { background: #59C059; }
+  .variables { background: #FF8C1A; }
+
+  .hasil {
+    margin-top: 7px; font-size: 9.3pt; background: #eaf6ef; border-left: 4px solid #59C059;
+    padding: 5px 9px; border-radius: 0 5px 5px 0;
+  }
+  .hasil b { color: #2f7a45; }
+  .awas {
+    margin-top: 7px; font-size: 9.3pt; background: #fdeeee; border-left: 4px solid #e05555;
+    padding: 5px 9px; border-radius: 0 5px 5px 0;
+  }
+
+  /* ---------- tabel ---------- */
+  table { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: 9.4pt; break-inside: avoid; }
+  th, td { border: 1px solid #cfd6df; padding: 5px 8px; text-align: left; vertical-align: top; }
+  th { background: #eef2f7; font-size: 8.6pt; letter-spacing: .05em; text-transform: uppercase; }
+  td.c, th.c { text-align: center; }
+  tfoot td { background: #eef2f7; font-weight: 700; }
+
+  .box-check li { list-style: none; }
+  .box-check { padding-left: 2px; }
+  .box-check li::before { content: "☐"; margin-right: 7px; font-size: 12pt; line-height: 1; }
+
+  .note { font-size: 9.2pt; color: #55606f; }
+  .pagebreak { break-before: page; }
+  .foot { margin-top: 16px; border-top: 1px solid #cfd6df; padding-top: 7px; font-size: 8.6pt; color: #6b7787; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="kop">
+  <div class="kop-top">
+    <div class="kop-eyebrow">Ujian Praktik &middot; Coding Scratch 3.0 &middot; Tingkat SMP</div>
+    <h1>Catch the Apple, Avoid the Rock</h1>
+    <div class="kop-sub">Tangkap Apel, Hindari Batu &mdash; buat satu permainan utuh dari nol</div>
+  </div>
+  <div class="kop-id">
+    <div><b>Nama</b><span class="dot"></span></div>
+    <div><b>Kelas</b><span class="dot"></span></div>
+    <div><b>Tanggal</b><span class="dot"></span></div>
+    <div><b>Waktu &middot; 90 menit</b><span class="dot"></span></div>
+  </div>
+</div>
+
+<h2><span class="no">1</span> Permainan yang Harus Kamu Buat</h2>
+<p>Kamu membuat permainan menangkap buah. Aturan mainnya:</p>
+<ul>
+  <li>Pemain menggerakkan <b>mangkuk</b> ke kiri dan ke kanan memakai tombol <b>panah kiri</b> dan <b>panah kanan</b>. Mangkuk tidak boleh keluar dari panggung.</li>
+  <li><b>Apel</b> jatuh dari atas ke bawah. Kalau tertangkap mangkuk: terdengar bunyi koin, <b>skor bertambah 1</b>, lalu apel kembali ke atas di tempat acak.</li>
+  <li><b>Batu</b> juga jatuh dari atas. Kalau batu kena mangkuk, tulisan <b>GAME OVER</b> muncul dan permainan berhenti.</li>
+  <li>Apel dan batu yang lolos sampai bawah panggung otomatis naik lagi ke atas di tempat acak.</li>
+</ul>
+
+<h2><span class="no">2</span> Yang Harus Ada di Proyekmu</h2>
+<p class="note">Beri centang setiap kali satu bagian selesai kamu buat.</p>
+<table>
+  <tr><th style="width:26px" class="c">&nbsp;</th><th style="width:150px">Bagian</th><th>Keterangan</th></tr>
+  <tr><td class="c">☐</td><td><b>1 Backdrop</b></td><td>Latar belakang bebas, pilih sendiri dari perpustakaan backdrop.</td></tr>
+  <tr><td class="c">☐</td><td><b>Sprite <i>Bowl</i></b></td><td>Mangkuk. Letakkan di bagian bawah panggung.</td></tr>
+  <tr><td class="c">☐</td><td><b>Sprite <i>Apple</i></b></td><td>Apel yang jatuh dan menambah skor.</td></tr>
+  <tr><td class="c">☐</td><td><b>Sprite <i>Rock</i></b></td><td>Batu yang jatuh dan mengakhiri permainan.</td></tr>
+  <tr><td class="c">☐</td><td><b>Sprite tulisan <i>Game Over</i></b></td><td>Buat lewat menu <i>Paint</i> &rarr; tulis teks <b>Game Over</b>. Beri nama sprite <b>Game Over</b>.</td></tr>
+  <tr><td class="c">☐</td><td><b>Variabel <i>Score</i></b></td><td>Kategori <span class="b variables">Variables</span> &rarr; <i>Make a Variable</i>. Nama persis: <b>Score</b>, untuk semua sprite.</td></tr>
+  <tr><td class="c">☐</td><td><b>Pesan <i>GAME OVER</i></b></td><td>Kategori <span class="b events">Events</span> &rarr; <i>New message</i>. Nama persis: <b>GAME OVER</b>.</td></tr>
+  <tr><td class="c">☐</td><td><b>Suara <i>Coin</i></b></td><td>Tambahkan di tab <i>Sounds</i> pada sprite <b>Apple</b>.</td></tr>
+  <tr><td class="c">☐</td><td><b>Suara <i>Laugh3</i></b></td><td>Tambahkan di tab <i>Sounds</i> pada sprite <b>Game Over</b>.</td></tr>
+</table>
+
+<h2><span class="no">3</span> Langkah Pengerjaan</h2>
+<p class="note">Kerjakan berurutan dari Langkah 1 sampai Langkah 5. Setiap kotak berwarna adalah <b>satu blok</b> yang harus kamu cari di palet dan kamu susun persis seperti urutannya. Blok yang ditulis <b>menjorok ke dalam</b> berarti diletakkan <b>di dalam</b> blok di atasnya.</p>
+
+<div class="sprite">
+  <div class="head"><span class="tag">Langkah 1</span> Backdrop &mdash; Latar Belakang</div>
+  <div class="body">
+    <ol>
+      <li>Klik tombol <b>Choose a Backdrop</b> di pojok kanan bawah.</li>
+      <li>Pilih satu backdrop bebas (contoh: <i>Blue Sky</i>).</li>
+    </ol>
+    <div class="hasil"><b>Hasil:</b> panggung tidak lagi berwarna putih polos. Backdrop tidak perlu diberi kode apa pun.</div>
+  </div>
+</div>
+
+<div class="sprite">
+  <div class="head"><span class="tag">Langkah 2</span> Sprite <i>Bowl</i> &mdash; Mangkuk yang Digerakkan Pemain</div>
+  <div class="body">
+    <p>Tambahkan sprite <b>Bowl</b>, lalu geser ke bagian bawah panggung. Buat <b>1 script</b> berikut.</p>
+
+    <div class="script">
+      <div class="title">Script 1 &mdash; Mangkuk bergerak kiri&ndash;kanan dan tidak keluar panggung</div>
+      <ol>
+        <li>Pasang <span class="b events">when ⚑ clicked</span> sebagai blok paling atas.</li>
+        <li>Di bawahnya pasang <span class="b control">forever</span>. <b>Semua langkah berikutnya diletakkan di dalam</b> <span class="b control">forever</span>.</li>
+        <li>Di dalam <span class="b control">forever</span>, pasang <span class="b control">if &lt; &gt; then</span>. Isi lubang segi enamnya dengan <span class="b sensing">key (right arrow) pressed?</span>. Di dalam <i>if</i> ini, susun:
+          <ol>
+            <li><span class="b motion">change x by (10)</span></li>
+            <li><span class="b control">if &lt; &gt; then</span> dengan syarat <span class="b sensing">touching (edge)?</span>, dan di dalamnya:
+              <ol><li><span class="b motion">change x by (-10)</span></li></ol>
+            </li>
+          </ol>
+        </li>
+        <li>Masih di dalam <span class="b control">forever</span>, <b>tepat di bawah</b> <i>if</i> yang tadi (bukan di dalamnya), pasang <span class="b control">if &lt; &gt; then</span> kedua dengan syarat <span class="b sensing">key (left arrow) pressed?</span>. Di dalamnya susun:
+          <ol>
+            <li><span class="b motion">change x by (-10)</span></li>
+            <li><span class="b control">if &lt; &gt; then</span> dengan syarat <span class="b sensing">touching (edge)?</span>, dan di dalamnya:
+              <ol><li><span class="b motion">change x by (10)</span></li></ol>
+            </li>
+          </ol>
+        </li>
+      </ol>
+      <div class="hasil"><b>Hasil:</b> mangkuk bergerak saat tombol panah ditekan, lalu <b>berhenti</b> begitu menyentuh tepi panggung &mdash; karena langkahnya langsung dibatalkan dengan nilai kebalikannya.</div>
+    </div>
+  </div>
+</div>
+
+<div class="sprite">
+  <div class="head"><span class="tag">Langkah 3</span> Sprite <i>Apple</i> &mdash; Apel yang Menambah Skor</div>
+  <div class="body">
+    <p>Tambahkan sprite <b>Apple</b> dan suara <b>Coin</b> di tab <i>Sounds</i>. Sprite ini punya <b>3 script terpisah</b> yang berdiri sendiri-sendiri.</p>
+
+    <div class="script">
+      <div class="title">Script 1 &mdash; Apel jatuh, lalu naik lagi ke atas</div>
+      <ol>
+        <li><span class="b events">when ⚑ clicked</span></li>
+        <li><span class="b control">forever</span>, dan di dalamnya:
+          <ol>
+            <li><span class="b motion">change y by (-5)</span></li>
+            <li><span class="b control">if &lt; &gt; then</span> dengan syarat operator <span class="b operators">( ) &lt; ( )</span>. Kolom kiri diisi blok <span class="b motion">y position</span>, kolom kanan diketik <b>-160</b>. Di dalam <i>if</i> ini:
+              <ol>
+                <li><span class="b motion">go to (random position)</span></li>
+                <li><span class="b motion">set y to (180)</span></li>
+              </ol>
+            </li>
+          </ol>
+        </li>
+      </ol>
+      <div class="hasil"><b>Hasil:</b> apel turun terus. Begitu posisi <i>y</i> lebih kecil dari &minus;160 (sudah di dasar panggung), apel pindah ke tempat acak lalu diangkat lagi ke atas (<i>y</i> = 180).</div>
+    </div>
+
+    <div class="script">
+      <div class="title">Script 2 &mdash; Apel tertangkap mangkuk &rarr; skor bertambah</div>
+      <ol>
+        <li><span class="b events">when ⚑ clicked</span></li>
+        <li><span class="b control">forever</span>, dan di dalamnya:
+          <ol>
+            <li><span class="b control">if &lt; &gt; then</span> dengan syarat <span class="b sensing">touching (Bowl)?</span>. Di dalam <i>if</i> ini, urut dari atas ke bawah:
+              <ol>
+                <li><span class="b sound">start sound (Coin)</span></li>
+                <li><span class="b variables">change (Score) by (1)</span></li>
+                <li><span class="b motion">go to (random position)</span></li>
+                <li><span class="b motion">set y to (180)</span></li>
+              </ol>
+            </li>
+          </ol>
+        </li>
+      </ol>
+      <div class="hasil"><b>Hasil:</b> saat apel menyentuh mangkuk terdengar bunyi koin, skor naik 1, dan apel langsung dikembalikan ke atas.</div>
+    </div>
+
+    <div class="script">
+      <div class="title">Script 3 &mdash; Skor dimulai dari nol</div>
+      <ol>
+        <li><span class="b events">when ⚑ clicked</span></li>
+        <li><span class="b variables">set (Score) to (0)</span></li>
+      </ol>
+      <div class="hasil"><b>Hasil:</b> setiap kali bendera hijau diklik, skor kembali ke 0 &mdash; tidak melanjutkan skor permainan sebelumnya.</div>
+    </div>
+  </div>
+</div>
+
+<div class="sprite">
+  <div class="head"><span class="tag">Langkah 4</span> Sprite <i>Rock</i> &mdash; Batu yang Mengakhiri Permainan</div>
+  <div class="body">
+    <p>Tambahkan sprite <b>Rock</b> (batu). Sprite ini punya <b>2 script terpisah</b>.</p>
+
+    <div class="script">
+      <div class="title">Script 1 &mdash; Batu jatuh, lalu naik lagi ke atas</div>
+      <ol>
+        <li><span class="b events">when ⚑ clicked</span></li>
+        <li><span class="b motion">set y to (180)</span> &nbsp;<span class="note">(supaya batu selalu mulai dari atas panggung)</span></li>
+        <li><span class="b control">forever</span>, dan di dalamnya:
+          <ol>
+            <li><span class="b motion">change y by (-5)</span></li>
+            <li><span class="b control">if &lt; &gt; then</span> dengan syarat <span class="b operators">( ) &lt; ( )</span>: kolom kiri <span class="b motion">y position</span>, kolom kanan <b>-160</b>. Di dalamnya:
+              <ol>
+                <li><span class="b motion">go to (random position)</span></li>
+                <li><span class="b motion">set y to (180)</span></li>
+              </ol>
+            </li>
+          </ol>
+        </li>
+      </ol>
+      <div class="hasil"><b>Hasil:</b> batu jatuh sama seperti apel dan berulang terus tanpa henti.</div>
+    </div>
+
+    <div class="script">
+      <div class="title">Script 2 &mdash; Batu kena mangkuk &rarr; permainan berakhir</div>
+      <ol>
+        <li><span class="b events">when ⚑ clicked</span></li>
+        <li><span class="b control">forever</span>, dan di dalamnya:
+          <ol>
+            <li><span class="b control">if &lt; &gt; then</span> dengan syarat <span class="b sensing">touching (Bowl)?</span>. Di dalam <i>if</i> ini:
+              <ol>
+                <li><span class="b events">broadcast (GAME OVER)</span></li>
+                <li><span class="b control">stop (all)</span></li>
+              </ol>
+            </li>
+          </ol>
+        </li>
+      </ol>
+      <div class="hasil"><b>Hasil:</b> begitu batu menyentuh mangkuk, sprite lain diberi tahu lewat pesan <b>GAME OVER</b>, lalu seluruh script di proyek dihentikan.</div>
+      <div class="awas"><b>Perhatikan:</b> <span class="b events">broadcast (GAME OVER)</span> harus berada <b>di atas</b> <span class="b control">stop (all)</span>. Kalau terbalik, pesan tidak pernah terkirim karena permainan sudah berhenti lebih dulu.</div>
+    </div>
+  </div>
+</div>
+
+<div class="sprite">
+  <div class="head"><span class="tag">Langkah 5</span> Sprite <i>Game Over</i> &mdash; Tulisan Penutup</div>
+  <div class="body">
+    <p>Buat sprite baru lewat <b>Paint</b>, gunakan alat <b>Text</b> (T) dan tulis <b>Game Over</b>. Ganti nama sprite menjadi <b>Game Over</b>, lalu tambahkan suara <b>Laugh3</b> di tab <i>Sounds</i>. Sprite ini punya <b>2 script terpisah</b>.</p>
+
+    <div class="script">
+      <div class="title">Script 1 &mdash; Tulisan disembunyikan saat permainan dimulai</div>
+      <ol>
+        <li><span class="b events">when ⚑ clicked</span></li>
+        <li><span class="b looks">hide</span></li>
+      </ol>
+    </div>
+
+    <div class="script">
+      <div class="title">Script 2 &mdash; Tulisan muncul saat menerima pesan GAME OVER</div>
+      <ol>
+        <li><span class="b events">when I receive (GAME OVER)</span> &nbsp;<span class="note">(blok topi, bukan <i>when ⚑ clicked</i>)</span></li>
+        <li><span class="b sound">start sound (Laugh3)</span></li>
+        <li><span class="b looks">show</span></li>
+      </ol>
+      <div class="hasil"><b>Hasil:</b> tulisan <b>Game Over</b> tersembunyi selama permainan berjalan, dan baru muncul bersama bunyi tawa ketika batu mengenai mangkuk.</div>
+    </div>
+  </div>
+</div>
+
+<div class="pagebreak"></div>
+
+<h2><span class="no">4</span> Uji Coba Sebelum Dikumpulkan</h2>
+<p class="note">Klik bendera hijau, lalu periksa satu per satu. Semua kotak harus tercentang.</p>
+<ul class="box-check">
+  <li>Skor di panggung menunjukkan <b>0</b> setiap kali bendera hijau diklik.</li>
+  <li>Mangkuk bergerak ke kanan saat tombol <b>panah kanan</b> ditekan, dan ke kiri saat <b>panah kiri</b> ditekan.</li>
+  <li>Mangkuk <b>berhenti</b> di tepi panggung, tidak bisa keluar layar.</li>
+  <li>Apel jatuh dari atas ke bawah tanpa berhenti.</li>
+  <li>Apel yang sampai dasar panggung naik lagi ke atas di tempat yang <b>berbeda-beda</b>.</li>
+  <li>Saat apel masuk mangkuk: terdengar bunyi <b>Coin</b> dan skor bertambah <b>1</b>.</li>
+  <li>Batu ikut jatuh dan berulang seperti apel.</li>
+  <li>Saat batu kena mangkuk: permainan berhenti dan tulisan <b>Game Over</b> muncul.</li>
+  <li>Nama variabel persis <b>Score</b>, nama pesan persis <b>GAME OVER</b>.</li>
+  <li>File disimpan dengan nama: <b>NamaKamu_Kelas_CatchTheApple.sb3</b>.</li>
+</ul>
+
+<h2><span class="no">5</span> Pedoman Penilaian</h2>
+<table>
+  <tr><th style="width:28px" class="c">No</th><th>Yang dinilai</th><th class="c" style="width:66px">Skor</th></tr>
+  <tr><td class="c">1</td><td>Backdrop dipasang dan 4 sprite lengkap (Bowl, Apple, Rock, Game Over) dengan nama benar</td><td class="c">10</td></tr>
+  <tr><td class="c">2</td><td>Variabel <b>Score</b> dan pesan <b>GAME OVER</b> dibuat dengan nama yang tepat</td><td class="c">10</td></tr>
+  <tr><td class="c">3</td><td><b>Bowl:</b> bergerak dua arah dengan tombol panah</td><td class="c">15</td></tr>
+  <tr><td class="c">4</td><td><b>Bowl:</b> tertahan di tepi panggung (<i>touching edge</i> dipakai dengan benar)</td><td class="c">10</td></tr>
+  <tr><td class="c">5</td><td><b>Apple:</b> jatuh dan muncul kembali di atas pada posisi acak</td><td class="c">15</td></tr>
+  <tr><td class="c">6</td><td><b>Apple:</b> skor bertambah 1 + bunyi <i>Coin</i> saat tertangkap, dan skor mulai dari 0</td><td class="c">15</td></tr>
+  <tr><td class="c">7</td><td><b>Rock:</b> jatuh berulang dan mengirim pesan <b>GAME OVER</b> lalu <i>stop all</i></td><td class="c">15</td></tr>
+  <tr><td class="c">8</td><td><b>Game Over:</b> tersembunyi di awal, muncul + berbunyi saat menerima pesan</td><td class="c">10</td></tr>
+  <tfoot><tr><td class="c">&nbsp;</td><td>Total</td><td class="c">100</td></tr></tfoot>
+</table>
+<p class="note">Pengurangan nilai: nama variabel/pesan tidak sesuai (&minus;5), blok tersusun tetapi permainan tidak jalan saat diuji (&minus;10).</p>
+
+<h2><span class="no">6</span> Kisi-Kisi &mdash; Materi yang Harus Dipelajari</h2>
+<p class="note">Semua materi di bawah ada di berkas <b>tab_code/tab_code_lengkap.pdf</b>. Kolom terakhir menunjukkan kategori dan nomor blok di berkas tersebut.</p>
+
+<h3>A. Blok yang wajib dikuasai</h3>
+<table>
+  <tr><th style="width:200px">Blok</th><th>Kegunaan di ujian ini</th><th style="width:112px">Cari di</th></tr>
+  <tr><td><span class="b events">when ⚑ clicked</span></td><td>Memulai setiap script saat bendera hijau diklik</td><td>Events &mdash; no. 1</td></tr>
+  <tr><td><span class="b events">broadcast ( )</span></td><td>Mengirim pesan <b>GAME OVER</b> ke sprite lain</td><td>Events &mdash; no. 8</td></tr>
+  <tr><td><span class="b events">when I receive ( )</span></td><td>Menerima pesan <b>GAME OVER</b> di sprite tulisan</td><td>Events &mdash; no. 7</td></tr>
+  <tr><td><span class="b control">forever</span></td><td>Mengulang gerakan &amp; pengecekan tanpa henti</td><td>Control &mdash; no. 4</td></tr>
+  <tr><td><span class="b control">if &lt; &gt; then</span></td><td>Percabangan: tombol ditekan? kena tepi? kena mangkuk?</td><td>Control &mdash; no. 6</td></tr>
+  <tr><td><span class="b control">stop (all)</span></td><td>Menghentikan seluruh permainan</td><td>Control &mdash; no. 8</td></tr>
+  <tr><td><span class="b motion">change x by ( )</span></td><td>Menggeser mangkuk ke kiri/kanan</td><td>Motion &mdash; no. 10</td></tr>
+  <tr><td><span class="b motion">change y by ( )</span></td><td>Menjatuhkan apel dan batu</td><td>Motion &mdash; no. 12</td></tr>
+  <tr><td><span class="b motion">set y to ( )</span></td><td>Mengangkat apel/batu kembali ke atas panggung</td><td>Motion &mdash; no. 13</td></tr>
+  <tr><td><span class="b motion">go to (random position)</span></td><td>Memunculkan apel/batu di titik acak</td><td>Motion &mdash; no. 4</td></tr>
+  <tr><td><span class="b motion">y position</span></td><td>Membaca posisi tegak untuk mengecek sudah sampai bawah</td><td>Motion &mdash; no. 17</td></tr>
+  <tr><td><span class="b sensing">key ( ) pressed?</span></td><td>Membaca tombol panah kiri/kanan</td><td>Sensing &mdash; no. 7</td></tr>
+  <tr><td><span class="b sensing">touching ( )?</span></td><td>Mendeteksi tepi panggung dan tabrakan dengan mangkuk</td><td>Sensing &mdash; no. 1</td></tr>
+  <tr><td><span class="b operators">( ) &lt; ( )</span></td><td>Membandingkan <i>y position</i> dengan &minus;160</td><td>Operators &mdash; no. 9</td></tr>
+  <tr><td><span class="b variables">set ( ) to ( )</span></td><td>Mengatur skor awal menjadi 0</td><td>Variables &mdash; blok variabel</td></tr>
+  <tr><td><span class="b variables">change ( ) by ( )</span></td><td>Menambah skor 1 setiap apel tertangkap</td><td>Variables &mdash; blok variabel</td></tr>
+  <tr><td><span class="b sound">start sound ( )</span></td><td>Bunyi <i>Coin</i> dan <i>Laugh3</i> tanpa menunggu selesai</td><td>Sound &mdash; no. 2</td></tr>
+  <tr><td><span class="b looks">show</span> / <span class="b looks">hide</span></td><td>Menyembunyikan &amp; memunculkan tulisan Game Over</td><td>Looks &mdash; no. 15 &amp; 16</td></tr>
+</table>
+
+<h3>B. Konsep yang diuji</h3>
+<table>
+  <tr><th style="width:170px">Konsep</th><th>Yang harus kamu pahami</th></tr>
+  <tr><td><b>Urutan (sequence)</b></td><td>Blok dijalankan dari atas ke bawah. Menukar urutan blok mengubah hasilnya.</td></tr>
+  <tr><td><b>Perulangan</b></td><td>Kapan memakai <span class="b control">forever</span>, dan mengapa blok gerak harus berada <b>di dalamnya</b>, bukan di bawahnya.</td></tr>
+  <tr><td><b>Percabangan</b></td><td>Membaca <span class="b control">if</span> sebagai &ldquo;jika benar, kerjakan isinya&rdquo;. Termasuk <b>if di dalam if</b> (bersarang) pada sprite Bowl.</td></tr>
+  <tr><td><b>Sistem koordinat</b></td><td>Sumbu <i>x</i> (&minus;240 s.d. 240) untuk kiri&ndash;kanan, sumbu <i>y</i> (&minus;180 s.d. 180) untuk atas&ndash;bawah. <i>y</i> negatif besar = dasar panggung.</td></tr>
+  <tr><td><b>Beda <i>change</i> dan <i>set</i></b></td><td><i>change</i> menambah dari nilai sekarang; <i>set</i> mengganti langsung dengan nilai baru. Berlaku untuk posisi maupun variabel.</td></tr>
+  <tr><td><b>Sensor &amp; kondisi</b></td><td>Blok segi enam (boolean) hanya bisa masuk ke lubang segi enam pada <span class="b control">if</span>.</td></tr>
+  <tr><td><b>Variabel</b></td><td>Membuat variabel, mengatur nilai awal, dan menambah nilainya saat kejadian tertentu.</td></tr>
+  <tr><td><b>Pesan (broadcast)</b></td><td>Cara satu sprite menyuruh sprite lain bekerja &mdash; pengirim dan penerima harus memakai nama pesan yang sama persis.</td></tr>
+  <tr><td><b>Banyak script sekaligus</b></td><td>Satu sprite boleh punya beberapa script <span class="b events">when ⚑ clicked</span> yang berjalan bersamaan.</td></tr>
+</table>
+
+<h3>C. Sumber belajar</h3>
+<ul>
+  <li><b>tab_code/tab_code_lengkap.pdf</b> &mdash; penjelasan lengkap seluruh blok tab <i>Code</i> per kategori, beserta contoh siap coba.</li>
+  <li>Perhatikan bagian <b>Pola Umum</b> pada kategori <i>Control</i>, <i>Sensing</i>, dan <i>Variables</i> &mdash; pola &ldquo;kontrol pemain&rdquo;, &ldquo;deteksi tabrakan&rdquo;, dan &ldquo;skor&rdquo; dipakai langsung di ujian ini.</li>
+</ul>
+
+<div class="foot">Catch the Apple, Avoid the Rock &middot; Ujian Praktik Coding Scratch 3.0 &middot; Tingkat SMP</div>
+
+</body>
+</html>

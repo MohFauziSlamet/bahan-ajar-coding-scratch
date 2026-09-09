@@ -1,0 +1,14 @@
+<meta charset="utf-8">
+<style>html,body{margin:0;padding:0;background:none}
+.wrap{display:block}</style>
+<div id="root"><div class="wrap" id="b33" style="display:inline-block"><pre class="b" style="margin:0 0 0px">replace item (1) of [rekor v] with (skor)</pre></div></div><pre id="o"></pre>
+<script src="file:///Users/user/Bahan Ajar/Coding Scratch/tab_code/vendor/scratchblocks/build/scratchblocks.min.js"></script>
+<script>
+scratchblocks.renderMatching("pre.b", {style:"scratch3", scale:1});
+const r={};
+for (const w of document.querySelectorAll(".wrap")) {
+  const b=w.getBoundingClientRect();
+  r[w.id]=[Math.ceil(b.width), Math.ceil(b.height)];
+}
+document.getElementById("o").textContent=JSON.stringify(r);
+</script>

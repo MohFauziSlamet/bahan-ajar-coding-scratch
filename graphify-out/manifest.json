@@ -1,0 +1,137 @@
+{
+  "komponen_editor_scratch/_generate_pptx.py": {
+    "mtime": 1785313553.4559326,
+    "ast_hash": "9356f3d93eebabc2ce3889a23da3ece0",
+    "semantic_hash": "9356f3d93eebabc2ce3889a23da3ece0"
+  },
+  "tab_code/_gen_block_assets.py": {
+    "mtime": 1785802860.7140713,
+    "ast_hash": "afa4838327122ae9fdd9c9548ca72855",
+    "semantic_hash": "afa4838327122ae9fdd9c9548ca72855"
+  },
+  "tab_code/_generate_pptx.py": {
+    "mtime": 1785803021.509255,
+    "ast_hash": "5f67b949642ab633cb75a3a5c35458bc",
+    "semantic_hash": "5f67b949642ab633cb75a3a5c35458bc"
+  },
+  "komponen_editor_scratch/00-index-peta-editor.md": {
+    "mtime": 1785303658.006259,
+    "ast_hash": "17fb2b8f007d8760bd7da31daca3da31",
+    "semantic_hash": "17fb2b8f007d8760bd7da31daca3da31"
+  },
+  "komponen_editor_scratch/01-menu-bar.md": {
+    "mtime": 1785303703.2721179,
+    "ast_hash": "5b6e04d4bc3b241b8f08de7e1b99d832",
+    "semantic_hash": "5b6e04d4bc3b241b8f08de7e1b99d832"
+  },
+  "komponen_editor_scratch/02-tab-code-costumes-sounds.md": {
+    "mtime": 1785303741.6147785,
+    "ast_hash": "596976ecf89746da5dcbb632c5b3959b",
+    "semantic_hash": "596976ecf89746da5dcbb632c5b3959b"
+  },
+  "komponen_editor_scratch/03-selektor-kategori-blok.md": {
+    "mtime": 1785303783.8235388,
+    "ast_hash": "f21704031b10775f111880103882edd7",
+    "semantic_hash": "f21704031b10775f111880103882edd7"
+  },
+  "komponen_editor_scratch/04-palet-blok.md": {
+    "mtime": 1785303821.7779548,
+    "ast_hash": "9eb84efecc8f4c36004df53fbf9c6fca",
+    "semantic_hash": "9eb84efecc8f4c36004df53fbf9c6fca"
+  },
+  "komponen_editor_scratch/05-area-kode.md": {
+    "mtime": 1785303864.6261897,
+    "ast_hash": "149eee5207b698f60672d421fbffe91e",
+    "semantic_hash": "149eee5207b698f60672d421fbffe91e"
+  },
+  "komponen_editor_scratch/06-panggung-stage.md": {
+    "mtime": 1785303904.4816315,
+    "ast_hash": "7ed21acb916e27dc573f5e643348a4a4",
+    "semantic_hash": "7ed21acb916e27dc573f5e643348a4a4"
+  },
+  "komponen_editor_scratch/07-kontrol-panggung.md": {
+    "mtime": 1785303938.8261623,
+    "ast_hash": "4d9b98725f4fd961b532cf84f24260a0",
+    "semantic_hash": "4d9b98725f4fd961b532cf84f24260a0"
+  },
+  "komponen_editor_scratch/08-panel-info-sprite.md": {
+    "mtime": 1785303988.4991028,
+    "ast_hash": "358b50799cf0f93907fa921f8a47f89b",
+    "semantic_hash": "358b50799cf0f93907fa921f8a47f89b"
+  },
+  "komponen_editor_scratch/09-daftar-sprite.md": {
+    "mtime": 1785304026.5190136,
+    "ast_hash": "366bfe8d8dc6536f7542f7e8825f0edf",
+    "semantic_hash": "366bfe8d8dc6536f7542f7e8825f0edf"
+  },
+  "komponen_editor_scratch/10-panel-stage-backdrop.md": {
+    "mtime": 1785304062.1120992,
+    "ast_hash": "04cbc8c50e1201c1327bb56631ec8e9a",
+    "semantic_hash": "04cbc8c50e1201c1327bb56631ec8e9a"
+  },
+  "komponen_editor_scratch/11-backpack.md": {
+    "mtime": 1785304097.7422826,
+    "ast_hash": "3d0fdab8f5717beb52240c97ec9efa1f",
+    "semantic_hash": "3d0fdab8f5717beb52240c97ec9efa1f"
+  },
+  "peta-fitur-scratch.md": {
+    "mtime": 1785292068.9650433,
+    "ast_hash": "fce679d11284e7bccf314bd1a67cd092",
+    "semantic_hash": "fce679d11284e7bccf314bd1a67cd092"
+  },
+  "tab_code/assets/motion/README.md": {
+    "mtime": 1785802375.0922403,
+    "ast_hash": "b96496149b14fdd255294ef217af200c",
+    "semantic_hash": "b96496149b14fdd255294ef217af200c"
+  },
+  "tab_code/tab_code_control.md": {
+    "mtime": 1785305584.5076616,
+    "ast_hash": "29d8aa2cb1cb7dc1f6c52cf0fa8d1d70",
+    "semantic_hash": "29d8aa2cb1cb7dc1f6c52cf0fa8d1d70"
+  },
+  "tab_code/tab_code_events.md": {
+    "mtime": 1785305524.6080544,
+    "ast_hash": "29c6db73b27539d290a5c40b0efd0956",
+    "semantic_hash": "29c6db73b27539d290a5c40b0efd0956"
+  },
+  "tab_code/tab_code_index.md": {
+    "mtime": 1785305297.3540514,
+    "ast_hash": "6501180b3833184160d857376eb2c186",
+    "semantic_hash": "6501180b3833184160d857376eb2c186"
+  },
+  "tab_code/tab_code_looks.md": {
+    "mtime": 1785803060.6408658,
+    "ast_hash": "587a96804b06bb8aead65ebbd78494c8",
+    "semantic_hash": "587a96804b06bb8aead65ebbd78494c8"
+  },
+  "tab_code/tab_code_motion.md": {
+    "mtime": 1785802375.0957336,
+    "ast_hash": "74c176c4365fcaf5117a36e85d9c4f56",
+    "semantic_hash": "74c176c4365fcaf5117a36e85d9c4f56"
+  },
+  "tab_code/tab_code_my_blocks.md": {
+    "mtime": 1785305843.2137067,
+    "ast_hash": "f8e31f09a077712333b2110568b23019",
+    "semantic_hash": "f8e31f09a077712333b2110568b23019"
+  },
+  "tab_code/tab_code_operators.md": {
+    "mtime": 1785305724.2293444,
+    "ast_hash": "66c58cde9ee22e886bbcd12ec83b9f4d",
+    "semantic_hash": "66c58cde9ee22e886bbcd12ec83b9f4d"
+  },
+  "tab_code/tab_code_sensing.md": {
+    "mtime": 1785305659.298224,
+    "ast_hash": "9080a9dfbce4590cffe3b9ded13efc3e",
+    "semantic_hash": "9080a9dfbce4590cffe3b9ded13efc3e"
+  },
+  "tab_code/tab_code_sound.md": {
+    "mtime": 1785305464.3778615,
+    "ast_hash": "f6bea9b91c5e95e161c7db0a000cf227",
+    "semantic_hash": "f6bea9b91c5e95e161c7db0a000cf227"
+  },
+  "tab_code/tab_code_variables.md": {
+    "mtime": 1785305787.259884,
+    "ast_hash": "5541792618254349a1974ccce5f5929a",
+    "semantic_hash": "5541792618254349a1974ccce5f5929a"
+  }
+}
