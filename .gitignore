@@ -3,3 +3,6 @@ node_modules/
 __pycache__/
 *.pyc
 *.tsbuildinfo
+
+# hasil antara _build_pdf.sh (html, vendor mermaid 3.5 MB, profil Chrome)
+junkins-lomba-coding-scatch/_build/
